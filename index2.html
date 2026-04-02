@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mądry Podolog - Gabinet Podologiczny</title>
+    <!-- Czcionka Google Fonts (Nowoczesna, bezszeryfowa) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Zmienne CSS dostosowane do Twojego logo (Niebieski i Biel) */
+        :root {
+            --primary-blue: #005bb5; /* Główny niebieski z logo */
+            --dark-blue: #00448a; /* Ciemniejszy odcień do hoverów */
+            --light-blue: #eef5fb; /* Bardzo jasny niebieski na tła sekcji */
+            --text-color: #333333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Nawigacja */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        /* Tutaj określamy wielkość Twojego logo */
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .btn-nav {
+            background-color: var(--primary-blue);
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 30px;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--dark-blue);
+        }
+
+        /* Wspólne ustawienia sekcji */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--primary-blue);
+        }
+
+        /* Sekcja Hero (Powitalna) */
+        .hero {
+            margin-top: 80px;
+            background-color: var(--light-blue);
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            border-radius: 0 0 40px 40px;
+            padding: 60px 20px 100px 20px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 46px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 16px 36px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 30px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 91, 181, 0.3);
+        }
+
+        .btn-main:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            height: 400px;
+            background: url('gabinet.png') center/cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Sekcja Usługi */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 20px;
+            border-radius: 20px;
+            border: 2px solid var(--light-blue);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 20px rgba(0, 91, 181, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* Używamy znaków Unicode / emoji jako prostych ikon, można je podmienić na SVG */
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        /* Sekcja O nas */
+        .about-bg {
+            background-color: var(--light-blue);
+            width: 100%;
+        }
+
+        .about {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            height: 400px;
+            border-radius: 20px;
+            background: url('https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') center/cover;
+        }
+
+        /* Sekcja Kontakt i Stopka */
+        .contact-section {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 80px 20px 40px 20px;
+            margin-top: 50px;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-container h2 {
+            color: var(--white);
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background-color: #ddd;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
+        }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about {
+                flex-direction: column;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .contact-container h2 {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nawigacja -->
+    <header>
+        <nav>
+            <a href="#" class="logo-container">
+                <!-- TUTAJ PODMIEŃ 'logo.png' NA NAZWĘ SWOJEGO PLIKU Z LOGO -->
+                <img src="logo.png" alt="Mądry Podolog Logo" class="logo-img" onerror="this.style.display='none'"> 
+                <span class="logo-text">Mądry Podolog</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#uslugi">Usługi</a></li>
+                <li><a href="#o-nas">O nas</a></li>
+                <li><a href="#kontakt" class="btn-nav">Umów wizytę</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sekcja Hero -->
+    <section class="hero" id="start">
+        <div class="hero-content">
+            <h1>Mądra opieka nad Twoimi stopami</h1>
+            <p>Profesjonalny gabinet podologiczny. Diagnozujemy, leczymy i zapobiegamy chorobom stóp oraz paznokci, dbając o Twój codzienny komfort.</p>
+            <a href="#kontakt" class="btn-main">Umów wizytę</a>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <!-- Sekcja Usługi -->
+    <section id="uslugi">
+        <h2>Nasze Usługi</h2>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="service-icon">👣</div>
+                <h3>Kompleksowy zabieg podologiczny</h3>
+                <p>Opracowanie stóp, obcięcie paznokci i usunięcie zrogowaceń.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🩹</div>
+                <h3>Terapia wrastających paznokci</h3>
+                <p>Klamry ortonyksyjne i bezbolesne wyprowadzanie paznokcia.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🦶</div>
+                <h3>Usuwanie odcisków i modzeli</h3>
+                <p>Szybkie usuwanie bolesnych zmian przynoszące natychmiastową ulgę.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3>Badanie mykologiczne</h3>
+                <p>Pobieranie materiału do badań w kierunku grzybicy.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sekcja O nas -->
+    <div class="about-bg">
+        <section id="o-nas" class="about">
+            <div class="about-image"></div>
+            <div class="about-text">
+                <h2>O Nas</h2>
+                <p>Mądry Podolog to miejsce, w którym profesjonalna wiedza medyczna spotyka się z empatią i zrozumieniem potrzeb pacjenta.</p>
+                <br>
+                <p>Wykorzystujemy najnowsze technologie i rygorystycznie przestrzegamy zasad sterylizacji. Niezależnie od tego, czy zmagasz się z bólem, czy po prostu chcesz zadbać o profilaktykę – jesteśmy tu, aby Ci pomóc. Twoje stopy niosą Cię przez całe życie, dlatego zasługują na mądrą opiekę.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Sekcja Kontakt -->
+    <div class="contact-section" id="kontakt">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Kontakt</h2>
+                <p>📍 Mądry Podolog, Węgierska 50, 65-941 Zielona Góra</p>
+                <p>📞 +48 789 238 530</p>
+                <p>✉️ gabinet@madrypodolog.pl</p>
+                <br><br>
+                <a href="tel:+48 789 238 530" style="background: white; color: var(--primary-blue); padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block;">Zadzwoń i zarezerwuj termin</a>
+            </div>
+            
+            <div class="map-container">
+                <!-- Tu można wkleić kod iFrame z Google Maps -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2459.886478341467!2d15.47790537702663!3d51.93602417930044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470611563a330289%3A0xedeaf938400458d1!2sW%C4%99gierska%2050%2C%2065-941%20Zielona%20G%C3%B3ra!5e0!3m2!1spl!2spl!4v1775161243732!5m2!1spl!2spl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2026 Mądry Podolog. Wszystkie prawa zastrzeżone.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
